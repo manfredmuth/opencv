@@ -1,0 +1,19 @@
+# First line to identify the right Containerfile
+# C_ID_openCV
+
+FROM quay.io/fedora/fedora:latest
+
+LABEL description="openCV installation based on fedora image"
+
+RUN dnf install -y numpy opencv* \
+    dnf check-update \
+    dnf upgrade -y \
+    ln -s /usr/bin/python3 /usr/bin/python
+
+# MAINTAINER Manfred Muth <mmuth@redhat.com>
+# ENV PORT 80
+# RUN dnf install -y nginx && \
+#     mkdir /run/nginx
+# EXPOSE ${PORT}
+# STOPSIGNAL SIGQUIT
+# CMD ["nginx", "-g", "daemon off;"]
