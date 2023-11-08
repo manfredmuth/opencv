@@ -7,6 +7,7 @@
 local_dir=/home/mmuth/GIT/opencv/Containerfiles/openCV/cascade
 # The directory in our container where $local_dir will be mounted
 target_dir=/cascade
+container_name=opencv
 
 # Check for the right Containerfile based on C_ID value
 
@@ -24,6 +25,7 @@ echo "Containerfile found - we start"
 echo "---------------------"
 echo "local_dir" $local_dir
 echo "target_dir" $target_dir
+echo "Container Name " $container_name
 
 # Clean up old stuff and remove old images
 echo "---------------------"
@@ -36,22 +38,14 @@ done
 # Create the container image
 echo "---------------------"
 echo "INFO - create the container image"
-podman build -t opencv .
+podman build -t $container_name .
 
 # Set proper rights for the mount
 echo "---------------------"
 echo "INFO - Set proper local rights for the mount"
 echo "podman unshare chown -R 0:0 " $local_dir
 echo ""
-# podman unshare chown -R 0:0 /home/mmuth/GIT/opencv/Containerfiles/openCV/cascade```
-
-#podman run --rm -d -t \
-#  --name openCV \
-#  -v /home/mmuth/GIT/cat_prey_project/Containerfiles/openCV/cascade:/cascade:Z \
-#  cat/opencv
-
-
-
+podman unshare chown -R 0:0 $local_dir
 
 ########
 
@@ -61,30 +55,5 @@ echo ""
 #This refers to [1]
 
 ## Resources
-# [1] [Troubelshoot podman terminates container on exit](https://github.com/containers/libpod/blob/master/troubleshooting.md)
+# [1] [Troubleshoot podman terminates container on exit](https://github.com/containers/libpod/blob/master/troubleshooting.md)
 ########
-
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV
-# C_ID_openCV - Identifier if we have the right file
-# C_ID_openCV - Identifier if we have the right file
-# C_ID_openCV - Identifier if we have the right file
-# C_ID_openCV - Identifier if we have the right file
-# C_ID_openCV - Identifier if we have the right file
