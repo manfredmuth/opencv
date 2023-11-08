@@ -1,14 +1,15 @@
-# First line to identify the right Containerfile
-# C_ID_openCV
-
 FROM quay.io/fedora/fedora:latest
+
+# C_ID_openCV - Identifier if we have the right file
 
 LABEL description="openCV installation based on fedora image"
 
-RUN dnf install -y numpy opencv* \
-    dnf check-update \
-    dnf upgrade -y \
-    ln -s /usr/bin/python3 /usr/bin/python
+RUN dnf install -y numpy opencv* && \
+  dnf check-update -y && \
+  dnf upgrade -y && \
+  ln -s /usr/bin/python3 /usr/bin/python
+
+STOPSIGNAL SIGQUIT
 
 # MAINTAINER Manfred Muth <mmuth@redhat.com>
 # ENV PORT 80
