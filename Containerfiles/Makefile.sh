@@ -4,7 +4,7 @@
 
 # The local directory we want to share in the container
 # this directory contains our images
-local_dir=/home/mmuth/GIT/opencv/Containerfiles/openCV/cascade
+local_dir=/home/mmuth/GIT/opencv/cascade
 # The directory in our container where $local_dir will be mounted
 target_dir=/cascade
 container_name=opencv
@@ -56,4 +56,4 @@ podman unshare chown -R 0:0 $local_dir
 
 ## Resources
 # [1] [Troubleshoot podman terminates container on exit](https://github.com/containers/libpod/blob/master/troubleshooting.md)
-########
+######### C_ID_openCV - Identifier if we have the right file
